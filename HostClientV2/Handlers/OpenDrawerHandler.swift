@@ -47,7 +47,7 @@ private extension OpenDrawerHandler {
     func hostSocketSend(message: OpenDrawerEvent) {
         print("broadcast")
         hostService.broadcast(message: message)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PAN") , object: message)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UPDATE_UI") , object: message)
     }
 
     func clientServerSend() {
@@ -75,7 +75,7 @@ private extension OpenDrawerHandler {
 
     func clientSocketReceive(message: OpenDrawerEvent) {
         print("clientSocketReceive: \(message)")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PAN") , object: message)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UPDATE_UI") , object: message)
     }
 }
 

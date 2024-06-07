@@ -21,7 +21,7 @@ struct ContentView: View {
             
             Text(message)
                 .onAppear {
-                    NotificationCenter.default.addObserver(forName: NSNotification.Name("PAN"), object: nil, queue: .main) { notification in
+                    NotificationCenter.default.addObserver(forName: NSNotification.Name("UPDATE_UI"), object: nil, queue: .main) { notification in
                         // Handle notification here
                         print("Received notification: \(notification)")
                         if let object = notification.object as? OpenDrawerEvent {
