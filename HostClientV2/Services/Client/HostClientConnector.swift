@@ -1,15 +1,14 @@
 //
-//  ClientServiceV2.swift
+//  HostClientConnector.swift
 //  HostClientV2
 //
-//  Created by Tayathorn.p on 6/6/2567 BE.
+//  Created by Tayathorn.p on 10/6/2567 BE.
 //
 
 import Foundation
-import Starscream
 
-final class ClientServiceV2 {
-    static let shared = ClientServiceV2()
+final class HostClientConnector {
+    static let shared = HostClientConnector()
     
     let webSocketClient: WebSocketClient
     
@@ -26,8 +25,8 @@ final class ClientServiceV2 {
         webSocketClient.disconnect()
     }
     
-    // Convert to enum API?
-    func send<T: Decodable>(path: String, command: CommandMessageProtocol, completion: @escaping (Result<T, Error>) -> Void) {
+    // Use Alamofire when integrate in FS project use `APIRouterProtocol` instead
+    func performRequest<T: Decodable>(path: String, command: CommandMessageProtocol, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = URL(string: "http://\(ServerConfiguration.ip):\(ServerConfiguration.port)\(path)") else {
             completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
             return
@@ -37,7 +36,9 @@ final class ClientServiceV2 {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let task = URLSession.shared.uploadTask(with: request, from: command.requestBody) { data, response, error in
+        let requestBody = try? JSONEncoder().encode(command.self)
+        
+        let task = URLSession.shared.uploadTask(with: request, from: requestBody) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -61,12 +62,15 @@ final class ClientServiceV2 {
         task.resume()
     }
     
-    func sendMessage(_ message: MessageProtocol) {
-        webSocketClient.sendMessage(message)
+    func registerServices() {
+        let services = [
+            OpenDrawerClientService()
+        ]
+        services.forEach { ClientServiceRegistry.shared.register($0) }
     }
 }
 
-extension ClientServiceV2: WebSocketClientDelegate {
+extension HostClientConnector: WebSocketClientDelegate {
     func didReceiveMessage(_ message: String) {
         print("didReceiveMessage")
         guard let data = message.data(using: .utf8) else {

@@ -11,7 +11,7 @@ struct ContentView: View {
     @State private var mode: String = ""
     @State private var message: String = ""
     
-    let openDrawerHandler = OpenDrawerHandler()
+    let manager = HostControllerManagerV2.shared
     
     var body: some View {
         VStack {
@@ -57,7 +57,8 @@ struct ContentView: View {
             }
             
             Button(action: {
-                openDrawerHandler.handleSend(useSocket: false)
+                manager.handleSend(for: .openDrawer)
+//                openDrawerHandler.handleSend(useSocket: false)
             }) {
                 Text("Open drawer via http")
                     .padding()
@@ -67,7 +68,8 @@ struct ContentView: View {
             }
             
             Button(action: {
-                openDrawerHandler.handleSend(useSocket: true)
+                manager.handleSend(for: .openDrawer)
+//                openDrawerHandler.handleSend(useSocket: true)
             }) {
                 Text("Open drawer via socket")
                     .padding()

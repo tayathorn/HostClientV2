@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		541121D52C16D5C000EE3A70 /* HostClientServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121D42C16D5C000EE3A70 /* HostClientServer.swift */; };
+		541121D72C16D6C900EE3A70 /* HostServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121D62C16D6C900EE3A70 /* HostServiceRegistry.swift */; };
+		541121DA2C16D84600EE3A70 /* HostClientConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121D92C16D84600EE3A70 /* HostClientConnector.swift */; };
+		541121DC2C16D9B200EE3A70 /* HostHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121DB2C16D9B200EE3A70 /* HostHandlerProtocol.swift */; };
+		541121DE2C16DA0F00EE3A70 /* OpenDrawerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121DD2C16DA0F00EE3A70 /* OpenDrawerHandler.swift */; };
+		541121E02C16E43E00EE3A70 /* ClientServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121DF2C16E43E00EE3A70 /* ClientServiceRegistry.swift */; };
+		541121E22C16E4C100EE3A70 /* OpenDrawerClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121E12C16E4C100EE3A70 /* OpenDrawerClientService.swift */; };
+		541121E42C16E4E500EE3A70 /* ClientServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121E32C16E4E500EE3A70 /* ClientServiceProtocol.swift */; };
+		541121E62C17014000EE3A70 /* HostClientServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121E52C17014000EE3A70 /* HostClientServiceProtocol.swift */; };
+		541121E82C17016800EE3A70 /* HostClientServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121E72C17016800EE3A70 /* HostClientServiceRegistry.swift */; };
 		542376842C119D590092E41D /* HostClientV2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376832C119D590092E41D /* HostClientV2App.swift */; };
 		542376862C119D590092E41D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376852C119D590092E41D /* ContentView.swift */; };
 		542376882C119D5B0092E41D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 542376872C119D5B0092E41D /* Assets.xcassets */; };
@@ -15,11 +25,7 @@
 		542376A02C119D5B0092E41D /* HostClientV2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5423769F2C119D5B0092E41D /* HostClientV2UITests.swift */; };
 		542376A22C119D5B0092E41D /* HostClientV2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376A12C119D5B0092E41D /* HostClientV2UITestsLaunchTests.swift */; };
 		542376AF2C119E6F0092E41D /* HostControllerManagerV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376AE2C119E6F0092E41D /* HostControllerManagerV2.swift */; };
-		542376B12C119EA10092E41D /* HostServiceV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376B02C119EA10092E41D /* HostServiceV2.swift */; };
 		542376B42C119ED70092E41D /* Swifter in Frameworks */ = {isa = PBXBuildFile; productRef = 542376B32C119ED70092E41D /* Swifter */; };
-		542376B62C119F060092E41D /* ClientServiceV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376B52C119F060092E41D /* ClientServiceV2.swift */; };
-		542376B82C11AA040092E41D /* OpenDrawerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376B72C11AA040092E41D /* OpenDrawerHandler.swift */; };
-		542376BA2C11AA140092E41D /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376B92C11AA140092E41D /* MessageHandler.swift */; };
 		542376BC2C11AABB0092E41D /* OpenDrawerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376BB2C11AABB0092E41D /* OpenDrawerCommand.swift */; };
 		542376BE2C11AD900092E41D /* MessageAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376BD2C11AD900092E41D /* MessageAction.swift */; };
 		542376C12C11C80C0092E41D /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 542376C02C11C80C0092E41D /* Starscream */; };
@@ -31,8 +37,6 @@
 		542376D22C12F9D90092E41D /* EventMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376D12C12F9D90092E41D /* EventMessageProtocol.swift */; };
 		542376D52C12FA1A0092E41D /* OpenDrawerEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376D42C12FA1A0092E41D /* OpenDrawerEvent.swift */; };
 		542376D72C12FB210092E41D /* AnyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376D62C12FB210092E41D /* AnyMessage.swift */; };
-		542376D92C12FB660092E41D /* MessageParserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376D82C12FB660092E41D /* MessageParserHandler.swift */; };
-		542376DB2C12FB7C0092E41D /* HostServerRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376DA2C12FB7C0092E41D /* HostServerRule.swift */; };
 		542376E72C130F870092E41D /* ServerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376E62C130F870092E41D /* ServerConfiguration.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		541121D42C16D5C000EE3A70 /* HostClientServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientServer.swift; sourceTree = "<group>"; };
+		541121D62C16D6C900EE3A70 /* HostServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostServiceRegistry.swift; sourceTree = "<group>"; };
+		541121D92C16D84600EE3A70 /* HostClientConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientConnector.swift; sourceTree = "<group>"; };
+		541121DB2C16D9B200EE3A70 /* HostHandlerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostHandlerProtocol.swift; sourceTree = "<group>"; };
+		541121DD2C16DA0F00EE3A70 /* OpenDrawerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDrawerHandler.swift; sourceTree = "<group>"; };
+		541121DF2C16E43E00EE3A70 /* ClientServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServiceRegistry.swift; sourceTree = "<group>"; };
+		541121E12C16E4C100EE3A70 /* OpenDrawerClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDrawerClientService.swift; sourceTree = "<group>"; };
+		541121E32C16E4E500EE3A70 /* ClientServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServiceProtocol.swift; sourceTree = "<group>"; };
+		541121E52C17014000EE3A70 /* HostClientServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientServiceProtocol.swift; sourceTree = "<group>"; };
+		541121E72C17016800EE3A70 /* HostClientServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientServiceRegistry.swift; sourceTree = "<group>"; };
 		542376802C119D590092E41D /* HostClientV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HostClientV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		542376832C119D590092E41D /* HostClientV2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientV2App.swift; sourceTree = "<group>"; };
 		542376852C119D590092E41D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,10 +80,6 @@
 		5423769F2C119D5B0092E41D /* HostClientV2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientV2UITests.swift; sourceTree = "<group>"; };
 		542376A12C119D5B0092E41D /* HostClientV2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientV2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		542376AE2C119E6F0092E41D /* HostControllerManagerV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostControllerManagerV2.swift; sourceTree = "<group>"; };
-		542376B02C119EA10092E41D /* HostServiceV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostServiceV2.swift; sourceTree = "<group>"; };
-		542376B52C119F060092E41D /* ClientServiceV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServiceV2.swift; sourceTree = "<group>"; };
-		542376B72C11AA040092E41D /* OpenDrawerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDrawerHandler.swift; sourceTree = "<group>"; };
-		542376B92C11AA140092E41D /* MessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
 		542376BB2C11AABB0092E41D /* OpenDrawerCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDrawerCommand.swift; sourceTree = "<group>"; };
 		542376BD2C11AD900092E41D /* MessageAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageAction.swift; sourceTree = "<group>"; };
 		542376C42C12B4080092E41D /* HostServerV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostServerV2.swift; sourceTree = "<group>"; };
@@ -80,8 +90,6 @@
 		542376D12C12F9D90092E41D /* EventMessageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMessageProtocol.swift; sourceTree = "<group>"; };
 		542376D42C12FA1A0092E41D /* OpenDrawerEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenDrawerEvent.swift; sourceTree = "<group>"; };
 		542376D62C12FB210092E41D /* AnyMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyMessage.swift; sourceTree = "<group>"; };
-		542376D82C12FB660092E41D /* MessageParserHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageParserHandler.swift; sourceTree = "<group>"; };
-		542376DA2C12FB7C0092E41D /* HostServerRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostServerRule.swift; sourceTree = "<group>"; };
 		542376E62C130F870092E41D /* ServerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +120,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		541121D32C16D59500EE3A70 /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				541121D62C16D6C900EE3A70 /* HostServiceRegistry.swift */,
+				542376C42C12B4080092E41D /* HostServerV2.swift */,
+				541121D42C16D5C000EE3A70 /* HostClientServer.swift */,
+				541121DB2C16D9B200EE3A70 /* HostHandlerProtocol.swift */,
+			);
+			path = Host;
+			sourceTree = "<group>";
+		};
+		541121D82C16D83400EE3A70 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				541121D92C16D84600EE3A70 /* HostClientConnector.swift */,
+				542376C62C12C24D0092E41D /* WebSocketClient.swift */,
+				541121DF2C16E43E00EE3A70 /* ClientServiceRegistry.swift */,
+				541121E12C16E4C100EE3A70 /* OpenDrawerClientService.swift */,
+				541121E32C16E4E500EE3A70 /* ClientServiceProtocol.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		542376772C119D590092E41D = {
 			isa = PBXGroup;
 			children = (
@@ -191,11 +222,11 @@
 		542376CD2C12F86A0092E41D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				542376B52C119F060092E41D /* ClientServiceV2.swift */,
-				542376C62C12C24D0092E41D /* WebSocketClient.swift */,
-				542376B02C119EA10092E41D /* HostServiceV2.swift */,
-				542376C42C12B4080092E41D /* HostServerV2.swift */,
+				541121D82C16D83400EE3A70 /* Client */,
+				541121D32C16D59500EE3A70 /* Host */,
 				542376E62C130F870092E41D /* ServerConfiguration.swift */,
+				541121E52C17014000EE3A70 /* HostClientServiceProtocol.swift */,
+				541121E72C17016800EE3A70 /* HostClientServiceRegistry.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -219,10 +250,7 @@
 		542376DC2C12FBD00092E41D /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				542376B92C11AA140092E41D /* MessageHandler.swift */,
-				542376D82C12FB660092E41D /* MessageParserHandler.swift */,
-				542376DA2C12FB7C0092E41D /* HostServerRule.swift */,
-				542376B72C11AA040092E41D /* OpenDrawerHandler.swift */,
+				541121DD2C16DA0F00EE3A70 /* OpenDrawerHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -365,26 +393,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541121DE2C16DA0F00EE3A70 /* OpenDrawerHandler.swift in Sources */,
+				541121E82C17016800EE3A70 /* HostClientServiceRegistry.swift in Sources */,
 				542376C72C12C24D0092E41D /* WebSocketClient.swift in Sources */,
 				542376BC2C11AABB0092E41D /* OpenDrawerCommand.swift in Sources */,
 				542376D72C12FB210092E41D /* AnyMessage.swift in Sources */,
 				542376D22C12F9D90092E41D /* EventMessageProtocol.swift in Sources */,
 				542376AF2C119E6F0092E41D /* HostControllerManagerV2.swift in Sources */,
 				542376D02C12F9AC0092E41D /* CommandMessageProtocol.swift in Sources */,
-				542376DB2C12FB7C0092E41D /* HostServerRule.swift in Sources */,
-				542376B62C119F060092E41D /* ClientServiceV2.swift in Sources */,
-				542376B12C119EA10092E41D /* HostServiceV2.swift in Sources */,
+				541121E02C16E43E00EE3A70 /* ClientServiceRegistry.swift in Sources */,
 				542376C52C12B4080092E41D /* HostServerV2.swift in Sources */,
+				541121E22C16E4C100EE3A70 /* OpenDrawerClientService.swift in Sources */,
+				541121E62C17014000EE3A70 /* HostClientServiceProtocol.swift in Sources */,
+				541121DC2C16D9B200EE3A70 /* HostHandlerProtocol.swift in Sources */,
 				542376862C119D590092E41D /* ContentView.swift in Sources */,
 				542376E72C130F870092E41D /* ServerConfiguration.swift in Sources */,
 				542376CB2C12F84F0092E41D /* MessageProtocol.swift in Sources */,
 				542376BE2C11AD900092E41D /* MessageAction.swift in Sources */,
+				541121D52C16D5C000EE3A70 /* HostClientServer.swift in Sources */,
 				542376C92C12EC390092E41D /* MessageParser.swift in Sources */,
+				541121E42C16E4E500EE3A70 /* ClientServiceProtocol.swift in Sources */,
 				542376842C119D590092E41D /* HostClientV2App.swift in Sources */,
-				542376BA2C11AA140092E41D /* MessageHandler.swift in Sources */,
 				542376D52C12FA1A0092E41D /* OpenDrawerEvent.swift in Sources */,
-				542376B82C11AA040092E41D /* OpenDrawerHandler.swift in Sources */,
-				542376D92C12FB660092E41D /* MessageParserHandler.swift in Sources */,
+				541121DA2C16D84600EE3A70 /* HostClientConnector.swift in Sources */,
+				541121D72C16D6C900EE3A70 /* HostServiceRegistry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

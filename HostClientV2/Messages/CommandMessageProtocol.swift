@@ -8,10 +8,3 @@
 import Foundation
 
 protocol CommandMessageProtocol: MessageProtocol {}
-
-extension CommandMessageProtocol {
-    var requestBody: Data? {
-        let requestBody = try? JSONEncoder().encode(self)
-        return requestBody
-    }
-}

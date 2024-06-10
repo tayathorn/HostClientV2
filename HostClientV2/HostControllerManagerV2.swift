@@ -12,30 +12,43 @@ enum Role: String {
 
 final class HostControllerManagerV2 {
     static let shared = HostControllerManagerV2()
-
-    let hostService: HostServiceV2
-    let clientService: ClientServiceV2
     
-    private(set) var actionHandlers: [MessageAction: MessageHandler] = [:]
+    let hostService: HostClientServer
+    let hostRegistry: HostServiceRegistry
+    
+    let clientService: HostClientConnector
+    let clientRegistry: ClientServiceRegistry
+    
     private(set) var role: Role = .host
     
     var isHost: Bool {
         role == .host
     }
-
-    private init(
-        hostService: HostServiceV2 = HostServiceV2.shared,
-        clientService: ClientServiceV2 = ClientServiceV2.shared
-    ) {
+    
+    private init(hostService: HostClientServer = HostClientServer.shared,
+                 hostRegistry: HostServiceRegistry = HostServiceRegistry.shared,
+                 clientService: HostClientConnector = HostClientConnector.shared,
+                 clientRegistry: ClientServiceRegistry = ClientServiceRegistry.shared) {
         self.hostService = hostService
+        self.hostRegistry = hostRegistry
+        
         self.clientService = clientService
+        self.clientRegistry = clientRegistry
     }
 
     func set(role: Role) {
-        registerHandlers()
-        
         self.role = role
         setupRole()
+    }
+    
+    func handleSend(for action: MessageAction) {
+        if isHost {
+            let host = hostRegistry.resolve(action: action)
+            host?.handleSend(action: action)
+        } else {
+            let client = clientRegistry.resolve(action: action)
+            client?.handleSend(action: action)
+        }
     }
 }
 
@@ -43,21 +56,13 @@ private extension HostControllerManagerV2 {
     func setupRole() {
         switch role {
         case .host:
+            hostService.registerHandlers()
             hostService.start()
             clientService.disConnect()
         case .client:
+            clientService.registerServices()
             clientService.connect()
             hostService.stop()
-        }
-    }
-    
-    func registerHandlers() {
-        let handlers: [MessageHandler] = [
-            OpenDrawerHandler()
-        ]
-        
-        handlers.forEach { handler in
-            actionHandlers[handler.action] = handler
         }
     }
 }

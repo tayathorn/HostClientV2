@@ -16,14 +16,18 @@ final class MessageParser {
             return
         }
         
-        handleMessageAction(from: action.action, message: message)
+        handleMessage(for: action.action, message: message)
     }
 
-    func handleMessageAction(from action: MessageAction, message: Data) {
-        let actionHandlers = HostControllerManagerV2.shared.actionHandlers
-
-        if let handler = actionHandlers[action] {
-            handler.handleReceive(message: message)
+    func handleMessage(for action: MessageAction, message: Data) {
+        guard let handler = ClientServiceRegistry.shared.resolve(action: action) else {
+            print("No handler found for action: \(action)")
+            return
+        }
+        
+        let decoder = JSONDecoder()
+        if let event = try? decoder.decode(handler.dataType, from: message) {
+            handler.handleReceive(event: event)
         }
     }
 }
