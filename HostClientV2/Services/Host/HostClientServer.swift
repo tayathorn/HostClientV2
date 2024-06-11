@@ -27,13 +27,4 @@ final class HostClientServer {
     func broadcast(message: EventMessageProtocol) {
         server.broadcast(message: message)
     }
-    
-    func registerHandlers() {
-        let handlers = [
-            OpenDrawerHandler()
-        ]
-        
-        handlers.forEach { HostServiceRegistry.shared.register($0) }
-        handlers.forEach { $0.handlePath() }
-    }
 }

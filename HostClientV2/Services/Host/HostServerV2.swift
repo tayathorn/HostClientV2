@@ -8,6 +8,10 @@
 import Foundation
 import Swifter
 
+// TODO: Handle queue?
+// TODO: Check version, change role, limit device, online-offline?
+// TODO: Check background, resume state?
+
 final class HostServerV2 {
     private let server = HttpServer()
     private var webSockets: [WebSocketSession] = []

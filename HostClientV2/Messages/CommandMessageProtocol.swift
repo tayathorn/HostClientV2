@@ -7,4 +7,12 @@
 
 import Foundation
 
-protocol CommandMessageProtocol: MessageProtocol {}
+protocol CommandMessageProtocol: MessageProtocol {
+    var requestID: String { get }
+}
+
+extension CommandMessageProtocol {
+    var path: String {
+        action.path
+    }
+}

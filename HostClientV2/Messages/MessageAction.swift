@@ -7,6 +7,10 @@
 
 enum MessageAction: String, Codable {
     case openDrawer = "open-drawer"
+    
+    var path: String {
+        "/\(self.rawValue)"
+    }
 }
 
 struct CommandEmptyResponse: Codable {}

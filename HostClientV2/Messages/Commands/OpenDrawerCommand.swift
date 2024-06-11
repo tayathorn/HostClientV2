@@ -8,6 +8,7 @@
 import Foundation
 
 struct OpenDrawerCommand: CommandMessageProtocol {
+    var requestID: String
     var action: MessageAction = .openDrawer
     let amount: String
     let cashDrawerID: String

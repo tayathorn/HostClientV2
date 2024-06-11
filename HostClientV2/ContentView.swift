@@ -57,21 +57,14 @@ struct ContentView: View {
             }
             
             Button(action: {
-                manager.handleSend(for: .openDrawer)
-//                openDrawerHandler.handleSend(useSocket: false)
+                if manager.isSupportV2(for: .openDrawer) {
+                    // v2
+                    manager.openDrawer(id: "123", amount: "500")
+                } else {
+                    // v1
+                }
             }) {
                 Text("Open drawer via http")
-                    .padding()
-                    .background(Color.green)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
-            
-            Button(action: {
-                manager.handleSend(for: .openDrawer)
-//                openDrawerHandler.handleSend(useSocket: true)
-            }) {
-                Text("Open drawer via socket")
                     .padding()
                     .background(Color.green)
                     .foregroundColor(.white)

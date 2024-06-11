@@ -25,4 +25,8 @@ final class HostServiceRegistry {
     func allHandlers() -> [HostHandlerProtocol] {
         Array(handlers.values)
     }
+    
+    func removeAll() {
+        handlers.removeAll()
+    }
 }

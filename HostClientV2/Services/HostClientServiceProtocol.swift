@@ -7,8 +7,6 @@
 
 protocol HostClientServiceProtocol {
     var manager: HostControllerManagerV2 { get }
-    
-    func handleSend(action: MessageAction)
 }
 
 extension HostClientServiceProtocol {

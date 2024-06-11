@@ -34,16 +34,6 @@ class WebSocketClient: WebSocketDelegate {
     }
     
     func sendMessage(_ message: MessageProtocol) {
-        // String
-//        guard let data = try? JSONEncoder().encode(message),
-//              let jsonString = String(data: data, encoding: .utf8) else {
-//            print("Failed to encode message")
-//            return
-//        }
-//        socket.write(string: jsonString)
-        
-        
-        // Data
         guard let data = try? JSONEncoder().encode(message) else {
             print("Failed to encode message")
             return

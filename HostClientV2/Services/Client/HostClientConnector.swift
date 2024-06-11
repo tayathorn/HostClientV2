@@ -26,7 +26,10 @@ final class HostClientConnector {
     }
     
     // Use Alamofire when integrate in FS project use `APIRouterProtocol` instead
-    func performRequest<T: Decodable>(path: String, command: CommandMessageProtocol, completion: @escaping (Result<T, Error>) -> Void) {
+    // TODO: Request id -> response -> common protocol
+    // TODO: Define error
+    func performRequest<T: Decodable>(command: CommandMessageProtocol, completion: @escaping (Result<T, Error>) -> Void) {
+        let path = command.path
         guard let url = URL(string: "http://\(ServerConfiguration.ip):\(ServerConfiguration.port)\(path)") else {
             completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
             return
@@ -60,13 +63,6 @@ final class HostClientConnector {
         }
         
         task.resume()
-    }
-    
-    func registerServices() {
-        let services = [
-            OpenDrawerClientService()
-        ]
-        services.forEach { ClientServiceRegistry.shared.register($0) }
     }
 }
 

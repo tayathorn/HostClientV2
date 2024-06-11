@@ -17,6 +17,8 @@
 		541121E42C16E4E500EE3A70 /* ClientServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121E32C16E4E500EE3A70 /* ClientServiceProtocol.swift */; };
 		541121E62C17014000EE3A70 /* HostClientServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121E52C17014000EE3A70 /* HostClientServiceProtocol.swift */; };
 		541121E82C17016800EE3A70 /* HostClientServiceRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121E72C17016800EE3A70 /* HostClientServiceRegistry.swift */; };
+		541121EA2C17F62E00EE3A70 /* MessageActionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121E92C17F62E00EE3A70 /* MessageActionChecker.swift */; };
+		541121ED2C17F67500EE3A70 /* AppFeatureFlagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541121EC2C17F67500EE3A70 /* AppFeatureFlagManager.swift */; };
 		542376842C119D590092E41D /* HostClientV2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376832C119D590092E41D /* HostClientV2App.swift */; };
 		542376862C119D590092E41D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542376852C119D590092E41D /* ContentView.swift */; };
 		542376882C119D5B0092E41D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 542376872C119D5B0092E41D /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		541121E32C16E4E500EE3A70 /* ClientServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServiceProtocol.swift; sourceTree = "<group>"; };
 		541121E52C17014000EE3A70 /* HostClientServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientServiceProtocol.swift; sourceTree = "<group>"; };
 		541121E72C17016800EE3A70 /* HostClientServiceRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientServiceRegistry.swift; sourceTree = "<group>"; };
+		541121E92C17F62E00EE3A70 /* MessageActionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageActionChecker.swift; sourceTree = "<group>"; };
+		541121EC2C17F67500EE3A70 /* AppFeatureFlagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeatureFlagManager.swift; sourceTree = "<group>"; };
 		542376802C119D590092E41D /* HostClientV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HostClientV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		542376832C119D590092E41D /* HostClientV2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostClientV2App.swift; sourceTree = "<group>"; };
 		542376852C119D590092E41D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 		541121D32C16D59500EE3A70 /* Host */ = {
 			isa = PBXGroup;
 			children = (
+				542376DC2C12FBD00092E41D /* Handlers */,
+				541121DF2C16E43E00EE3A70 /* ClientServiceRegistry.swift */,
 				541121D62C16D6C900EE3A70 /* HostServiceRegistry.swift */,
 				542376C42C12B4080092E41D /* HostServerV2.swift */,
 				541121D42C16D5C000EE3A70 /* HostClientServer.swift */,
@@ -134,13 +140,20 @@
 		541121D82C16D83400EE3A70 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				541121F22C1836E100EE3A70 /* Services */,
 				541121D92C16D84600EE3A70 /* HostClientConnector.swift */,
 				542376C62C12C24D0092E41D /* WebSocketClient.swift */,
-				541121DF2C16E43E00EE3A70 /* ClientServiceRegistry.swift */,
-				541121E12C16E4C100EE3A70 /* OpenDrawerClientService.swift */,
 				541121E32C16E4E500EE3A70 /* ClientServiceProtocol.swift */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		541121F22C1836E100EE3A70 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				541121E12C16E4C100EE3A70 /* OpenDrawerClientService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		542376772C119D590092E41D = {
@@ -169,9 +182,7 @@
 				542376892C119D5B0092E41D /* HostClientV2.entitlements */,
 				542376852C119D590092E41D /* ContentView.swift */,
 				542376832C119D590092E41D /* HostClientV2App.swift */,
-				542376AE2C119E6F0092E41D /* HostControllerManagerV2.swift */,
 				542376872C119D5B0092E41D /* Assets.xcassets */,
-				542376DC2C12FBD00092E41D /* Handlers */,
 				542376CC2C12F85F0092E41D /* Messages */,
 				5423768A2C119D5B0092E41D /* Preview Content */,
 				542376CD2C12F86A0092E41D /* Services */,
@@ -211,6 +222,7 @@
 				542376CF2C12F9AC0092E41D /* CommandMessageProtocol.swift */,
 				542376D12C12F9D90092E41D /* EventMessageProtocol.swift */,
 				542376BD2C11AD900092E41D /* MessageAction.swift */,
+				541121E92C17F62E00EE3A70 /* MessageActionChecker.swift */,
 				542376C82C12EC390092E41D /* MessageParser.swift */,
 				542376CA2C12F84F0092E41D /* MessageProtocol.swift */,
 				542376CE2C12F9800092E41D /* Commands */,
@@ -222,11 +234,13 @@
 		542376CD2C12F86A0092E41D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				542376AE2C119E6F0092E41D /* HostControllerManagerV2.swift */,
 				541121D82C16D83400EE3A70 /* Client */,
 				541121D32C16D59500EE3A70 /* Host */,
 				542376E62C130F870092E41D /* ServerConfiguration.swift */,
 				541121E52C17014000EE3A70 /* HostClientServiceProtocol.swift */,
 				541121E72C17016800EE3A70 /* HostClientServiceRegistry.swift */,
+				541121EC2C17F67500EE3A70 /* AppFeatureFlagManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -394,8 +408,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				541121DE2C16DA0F00EE3A70 /* OpenDrawerHandler.swift in Sources */,
+				541121EA2C17F62E00EE3A70 /* MessageActionChecker.swift in Sources */,
 				541121E82C17016800EE3A70 /* HostClientServiceRegistry.swift in Sources */,
 				542376C72C12C24D0092E41D /* WebSocketClient.swift in Sources */,
+				541121ED2C17F67500EE3A70 /* AppFeatureFlagManager.swift in Sources */,
 				542376BC2C11AABB0092E41D /* OpenDrawerCommand.swift in Sources */,
 				542376D72C12FB210092E41D /* AnyMessage.swift in Sources */,
 				542376D22C12F9D90092E41D /* EventMessageProtocol.swift in Sources */,
