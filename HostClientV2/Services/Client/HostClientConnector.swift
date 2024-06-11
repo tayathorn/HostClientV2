@@ -27,11 +27,10 @@ final class HostClientConnector {
     
     // Use Alamofire when integrate in FS project use `APIRouterProtocol` instead
     // TODO: Request id -> response -> common protocol
-    // TODO: Define error
-    func performRequest<T: Decodable>(command: CommandMessageProtocol, completion: @escaping (Result<T, Error>) -> Void) {
+    func performRequest<T: Decodable>(command: CommandMessageProtocol, completion: @escaping (Result<T, MessageError>) -> Void) {
         let path = command.path
         guard let url = URL(string: "http://\(ServerConfiguration.ip):\(ServerConfiguration.port)\(path)") else {
-            completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
+            completion(.failure(.invalidURL))
             return
         }
         
@@ -43,22 +42,22 @@ final class HostClientConnector {
         
         let task = URLSession.shared.uploadTask(with: request, from: requestBody) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(.unexpected(error: error)))
                 return
             }
             guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
-                completion(.failure(NSError(domain: "Server error", code: -1, userInfo: nil)))
+                completion(.failure(.unknown))
                 return
             }
             guard let data = data else {
-                completion(.failure(NSError(domain: "No data received", code: -1, userInfo: nil)))
+                completion(.failure(.noData))
                 return
             }
             do {
                 let decodedResponse = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(decodedResponse))
             } catch {
-                completion(.failure(error))
+                completion(.failure(.unableToDecode))
             }
         }
         

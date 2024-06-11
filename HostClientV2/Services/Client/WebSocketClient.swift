@@ -53,6 +53,8 @@ class WebSocketClient: WebSocketDelegate {
             delegate?.didReceiveData(data)
         case .error(let error):
             print("WebSocket error: \(String(describing: error))")
+        case .peerClosed:
+            socket.disconnect()
         default:
             print("WebSocket: \(event)")
         }

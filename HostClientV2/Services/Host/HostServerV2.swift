@@ -28,6 +28,11 @@ final class HostServerV2 {
             if !isContain {
                 self?.webSockets.append(session)
             }
+        }, disconnected: { [weak self] session in
+            print("disconnected session: \(session)")
+            if let index = self?.webSockets.firstIndex(of: session) {
+                self?.webSockets.remove(at: index)
+            }
         })
         
         do {
