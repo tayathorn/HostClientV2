@@ -26,7 +26,7 @@ final class HostControllerManagerV2 {
         role == .host
     }
     
-    private init(
+    init(
         hostService: HostClientServer = HostClientServer.shared,
         hostRegistry: HostServiceRegistry = HostServiceRegistry.shared,
         clientService: HostClientConnector = HostClientConnector.shared,

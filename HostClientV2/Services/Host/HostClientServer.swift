@@ -7,12 +7,12 @@
 
 import Foundation
 
-final class HostClientServer {
+class HostClientServer {
     static let shared = HostClientServer()
     
     let server: HostServerV2
     
-    private init(server: HostServerV2 = HostServerV2()) {
+    init(server: HostServerV2 = HostServerV2()) {
         self.server = server
     }
     

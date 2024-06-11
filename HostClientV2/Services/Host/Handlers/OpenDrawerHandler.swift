@@ -7,9 +7,13 @@
 
 import Foundation
 
-final class OpenDrawerHandler: HostHandlerProtocol {
+class OpenDrawerHandler: HostHandlerProtocol {
     let action: MessageAction = .openDrawer
-    let manager = HostControllerManagerV2.shared
+    let manager: HostControllerManagerV2
+    
+    init(manager: HostControllerManagerV2 = HostControllerManagerV2.shared) {
+        self.manager = manager
+    }
     
     func handlePath() {
         hostService.server.registerPostHandler(forPath: action.path) { [weak self] (message: OpenDrawerCommand) in

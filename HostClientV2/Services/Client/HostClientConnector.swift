@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HostClientConnector {
+class HostClientConnector {
     static let shared = HostClientConnector()
     
     let webSocketClient: WebSocketClient
