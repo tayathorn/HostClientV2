@@ -61,7 +61,7 @@ final class HostControllerManagerV2 {
             let registry = hostRegistry.resolve(action: command.action) as? OpenDrawerHandler
             registry?.handleOpenDrawer(message: command)
         } else {
-            clientService.performRequest(command: command) { (result: Result<CommandEmptyResponse, Error>) in
+            clientService.performRequest(command: command) { (result: Result<CommandEmptyResponse, MessageError>) in
                 
             }
         }
