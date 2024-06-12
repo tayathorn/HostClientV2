@@ -10,20 +10,17 @@ import Foundation
 final class ClientServiceRegistry {
     static let shared = ClientServiceRegistry()
     
-    private var handlers: [MessageAction: ClientServiceProtocol] = [:]
+    private var handlers: [MessageAction: any AnyClientServiceProtocol] = [:]
     
     private init() {}
     
-    func register(_ handler: ClientServiceProtocol) {
-        handlers[handler.action] = handler
+    func register<T: ClientServiceProtocol>(_ service: T) {
+        let anyService = AnyClientService(service)
+        handlers[service.action] = anyService
     }
     
-    func resolve(action: MessageAction) -> ClientServiceProtocol? {
-        handlers[action]
-    }
-    
-    func allHandlers() -> [ClientServiceProtocol] {
-        Array(handlers.values)
+    func resolve(action: MessageAction) -> AnyClientServiceProtocol? {
+        return handlers[action]
     }
     
     func removeAll() {

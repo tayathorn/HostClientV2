@@ -8,6 +8,8 @@
 import Foundation
 
 class OpenDrawerHandler: HostHandlerProtocol {
+    typealias Command = OpenDrawerCommand
+    
     let action: MessageAction = .openDrawer
     let manager: HostControllerManagerV2
     
@@ -15,13 +17,11 @@ class OpenDrawerHandler: HostHandlerProtocol {
         self.manager = manager
     }
     
-    func handlePath() {
-        hostService.server.registerPostHandler(forPath: action.path) { [weak self] (message: OpenDrawerCommand) in
-            self?.handleOpenDrawer(message: message)
-            
-            let response = CommandEmptyResponse()
-            return .json(response)
-        }
+    func handle(command: OpenDrawerCommand) -> ServerResponse {
+        handleOpenDrawer(message: command)
+        
+        let response = CommandEmptyResponse()
+        return .json(response)
     }
     
     func handleOpenDrawer(message: OpenDrawerCommand) {

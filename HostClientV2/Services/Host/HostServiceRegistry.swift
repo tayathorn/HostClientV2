@@ -10,20 +10,17 @@ import Foundation
 final class HostServiceRegistry {
     static let shared = HostServiceRegistry()
     
-    private var handlers: [MessageAction: HostHandlerProtocol] = [:]
+    private var handlers: [MessageAction: any AnyHostHandlerProtocol] = [:]
     
     private init() {}
     
-    func register(_ handler: HostHandlerProtocol) {
-        handlers[handler.action] = handler
+    func register<T: HostHandlerProtocol>(_ hostHandler: T) {
+        let anyHostHandler = AnyHostHandler(hostHandler)
+        handlers[hostHandler.action] = anyHostHandler
     }
     
-    func resolve(action: MessageAction) -> HostHandlerProtocol? {
-        handlers[action]
-    }
-    
-    func allHandlers() -> [HostHandlerProtocol] {
-        Array(handlers.values)
+    func resolve(action: MessageAction) -> AnyHostHandlerProtocol? {
+        return handlers[action]
     }
     
     func removeAll() {

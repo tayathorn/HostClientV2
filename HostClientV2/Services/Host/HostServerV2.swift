@@ -12,6 +12,8 @@ import Swifter
 // TODO: Check version, change role, limit device, online-offline?
 // TODO: Check background, resume state?
 
+typealias ServerResponse = HttpResponse
+
 final class HostServerV2 {
     private let server = HttpServer()
     private var webSockets: [WebSocketSession] = []
@@ -58,14 +60,19 @@ final class HostServerV2 {
         }
     }
     
-    func registerPostHandler<T: Decodable>(forPath path: String, handler: @escaping (T) -> HttpResponse) {
-        server.post["\(path)"] = { request in
+    func register(for action: MessageAction) {
+        guard let handler = HostServiceRegistry.shared.resolve(action: action) else {
+            print("No handler found for action: \(action)")
+            return
+        }
+        
+        server.post[handler.action.rawValue] = { request in
             let bodyData = Data(request.body)
-            do {
-                let decodedObject = try JSONDecoder().decode(T.self, from: bodyData)
-                return handler(decodedObject)
-            } catch {
-                print("Failed to decode JSON: \(error)")
+            
+            let decoder = JSONDecoder()
+            if let command = try? decoder.decode(handler.dataType, from: bodyData) {
+                return handler.handle(command: command)
+            } else {
                 return .badRequest(nil)
             }
         }

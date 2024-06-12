@@ -93,8 +93,7 @@ private extension HostControllerManagerV2 {
         
         handlers.forEach { 
             HostServiceRegistry.shared.register($0)
-            // For register path
-            $0.handlePath()
+            hostService.server.register(for: $0.action)
         }
     }
     
