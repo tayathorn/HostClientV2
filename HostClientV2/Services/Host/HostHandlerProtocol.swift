@@ -43,7 +43,7 @@ struct AnyHostHandler<T: HostHandlerProtocol>: AnyHostHandlerProtocol {
             if let command = command as? T.Command {
                 return handler.handle(command: command)
             } else {
-                print("Invalid event type")
+                print("Invalid command")
                 return .badRequest(nil)
             }
         }
